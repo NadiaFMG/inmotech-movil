@@ -1,4 +1,5 @@
 class Inmueble {
+  //clase de modelo inmueble
   final int? id;
   final List<String> imagenes;
   final int area;
@@ -21,6 +22,7 @@ class Inmueble {
   final Map<String, dynamic>? otrasCaracteristicas;
 
   const Inmueble({
+    // Constructor con parámetros nombrados
     this.id,
     required this.imagenes,
     required this.area,
@@ -44,33 +46,38 @@ class Inmueble {
   });
 
   factory Inmueble.fromJson(Map<String, dynamic> json) {
+    // Método para crear una instancia de Inmueble desde un JSON
     return Inmueble(
       id: json['id'] as int?,
-      imagenes: json['imagenes'] != null 
-        ? List<String>.from(json['imagenes'])
-        : [],
+      imagenes:
+          json['imagenes'] != null ? List<String>.from(json['imagenes']) : [],
       area: json['area'] as int? ?? 0,
       terreno: json['terreno'] as int? ?? 0,
       habitaciones: json['habitaciones'] as int? ?? 0,
       banos: json['banos'] as int? ?? 0,
       descripcion: json['descripcion'] as String? ?? '',
       titulo: json['titulo'] as String?,
-      precio: json['precio'] != null ? (json['precio'] as num).toDouble() : null,
+      precio:
+          json['precio'] != null ? (json['precio'] as num).toDouble() : null,
       tipo: json['tipo'] as String?,
       estado: json['estado'] as String?,
       ubicacion: json['ubicacion'] as String?,
       direccion: json['direccion'] as String?,
-      latitud: json['latitud'] != null ? (json['latitud'] as num).toDouble() : null,
-      longitud: json['longitud'] != null ? (json['longitud'] as num).toDouble() : null,
-      fechaCreacion: json['fechaCreacion'] != null 
-        ? DateTime.parse(json['fechaCreacion'])
-        : null,
-      fechaActualizacion: json['fechaActualizacion'] != null 
-        ? DateTime.parse(json['fechaActualizacion'])
-        : null,
+      latitud:
+          json['latitud'] != null ? (json['latitud'] as num).toDouble() : null,
+      longitud: json['longitud'] != null
+          ? (json['longitud'] as num).toDouble()
+          : null,
+      fechaCreacion: json['fechaCreacion'] != null
+          ? DateTime.parse(json['fechaCreacion'])
+          : null,
+      fechaActualizacion: json['fechaActualizacion'] != null
+          ? DateTime.parse(json['fechaActualizacion'])
+          : null,
       activo: json['activo'] as bool?,
       propietarioId: json['propietarioId'] as int?,
-      otrasCaracteristicas: json['otrasCaracteristicas'] as Map<String, dynamic>?,
+      otrasCaracteristicas:
+          json['otrasCaracteristicas'] as Map<String, dynamic>?,
     );
   }
 
@@ -91,11 +98,14 @@ class Inmueble {
       if (direccion != null) 'direccion': direccion,
       if (latitud != null) 'latitud': latitud,
       if (longitud != null) 'longitud': longitud,
-      if (fechaCreacion != null) 'fechaCreacion': fechaCreacion!.toIso8601String(),
-      if (fechaActualizacion != null) 'fechaActualizacion': fechaActualizacion!.toIso8601String(),
+      if (fechaCreacion != null)
+        'fechaCreacion': fechaCreacion!.toIso8601String(),
+      if (fechaActualizacion != null)
+        'fechaActualizacion': fechaActualizacion!.toIso8601String(),
       if (activo != null) 'activo': activo,
       if (propietarioId != null) 'propietarioId': propietarioId,
-      if (otrasCaracteristicas != null) 'otrasCaracteristicas': otrasCaracteristicas,
+      if (otrasCaracteristicas != null)
+        'otrasCaracteristicas': otrasCaracteristicas,
     };
   }
 

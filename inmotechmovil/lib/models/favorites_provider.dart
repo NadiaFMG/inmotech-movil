@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import '../models/inmueble.dart';
+import 'inmueble.dart';
 
-// Importa tu modelo de Inmueble. Ajusta la ruta si es necesario.
-// Este es el gestor de estado para tus favoritos.
+//gestor de estado para favoritos.
 class FavoritesProvider with ChangeNotifier {
   final Set<int> _favoriteIds = {};
 
   Set<int> get favoriteIds => _favoriteIds;
 
-  // Un método para agregar o quitar un inmueble por su ID.
+  // agregar o quitar un inmueble por su ID.
   void toggleFavorite(int inmuebleId) {
     if (_favoriteIds.contains(inmuebleId)) {
       _favoriteIds.remove(inmuebleId);
@@ -18,7 +17,7 @@ class FavoritesProvider with ChangeNotifier {
     notifyListeners(); // Notifica a los widgets que la lista ha cambiado.
   }
 
-  // Un método para verificar si un inmueble es favorito por su ID.
+  //  verificar si un inmueble es favorito por su ID.
   bool isFavorite(int inmuebleId) {
     return _favoriteIds.contains(inmuebleId);
   }
